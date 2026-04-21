@@ -83,7 +83,7 @@ To integrate this agent with WhatsApp in production, use the WhatsApp Business C
 
 ## Running Tests
 
-pytest -q
+.\venv\Scripts\python -m pytest -q
 
 ## Demo Checklist
 
