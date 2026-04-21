@@ -173,6 +173,9 @@ def classify_intent_node(state: AgentState) -> dict[str, Any]:
 
     intent = detect_intent(text)
 
+    if intent == "high_intent_lead":
+        print("[DEMO] Agent detecting high-intent")
+
     # Start a fresh qualification cycle for a new signup request after prior capture.
     if intent == "high_intent_lead" and state.get("lead_captured", False):
         return {
@@ -276,6 +279,11 @@ def lead_qualification_node(state: AgentState) -> dict[str, Any]:
     missing = _missing_fields(details)
 
     if missing:
+        print(
+            "[DEMO] Agent collecting user details "
+            f"(have: name={bool(details.get('name'))}, email={bool(details.get('email'))}, platform={bool(details.get('platform'))}; "
+            f"missing: {', '.join(missing)})"
+        )
         prompts = {
             "name": "Great choice. Could you share your name?",
             "email": "Please share your best email so we can set up your trial.",
@@ -311,6 +319,7 @@ def tool_node(state: AgentState) -> dict[str, Any]:
         }
 
     if not state.get("lead_captured"):
+        print("[DEMO] Successful lead capture using mock tool")
         mock_lead_capture(
             details["name"] or "",
             details["email"] or "",
