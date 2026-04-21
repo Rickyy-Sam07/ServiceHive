@@ -1,0 +1,6 @@
+langgraph>=0.2.40
+langchain>=0.3.0
+langchain-google-genai>=2.0.0
+python-dotenv>=1.0.1
+flask>=3.0.3
+pytest>=8.3.2
