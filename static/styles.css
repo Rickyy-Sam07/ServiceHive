@@ -19,18 +19,20 @@ body {
   background: radial-gradient(circle at 0 0, var(--bg-a), transparent 50%),
               radial-gradient(circle at 100% 100%, var(--bg-b), transparent 45%),
               #f9fbff;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: block;
+  padding: 0;
 }
 
 .shell {
-  width: min(920px, 100%);
+  width: 100%;
+  min-height: 100vh;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: 0 14px 38px rgba(18, 45, 78, 0.12);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero {
@@ -50,8 +52,8 @@ body {
 }
 
 .chat {
-  min-height: 360px;
-  max-height: 52vh;
+  flex: 1;
+  min-height: 0;
   overflow: auto;
   padding: 16px;
   display: flex;
@@ -112,6 +114,6 @@ body {
 }
 
 @media (max-width: 640px) {
-  body { padding: 10px; }
-  .chat { min-height: 58vh; }
+  .chat { padding: 12px; }
+  .composer { padding: 10px; }
 }
